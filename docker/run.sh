@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ./build.sh
-# echo "Deleting "
+echo "Killing ADB server"
 adb kill-server
 
 docker rm -f react-native-map-app 

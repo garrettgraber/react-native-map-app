@@ -106,21 +106,9 @@ RUN /opt/tools/android-accept-licenses.sh "$ANDROID_HOME/tools/bin/sdkmanager \
 	\"extras;google;google_play_services\"" \
 	&& $ANDROID_HOME/tools/bin/sdkmanager --update
 
-
-RUN echo "$PWD"
-
 # install dumb init for signal passing
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.0.3/dumb-init_1.0.3_amd64
 RUN chmod +x /usr/local/bin/dumb-init
-
-#copy in the package json to the app directory to run the install
-# (this directory should be linked over with -v on run so you can live edit your code locally)
-RUN mkdir /root/app
-ADD ./package.json /root/app/package.json
-
-# install npm modules
-RUN cd /root/app; npm install --save; ls;
-
 
 # expose the port
 EXPOSE 8081
