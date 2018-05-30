@@ -41,15 +41,25 @@ export default class RNRedux extends Component {
   }
 
   render() {
+
+    const DrunkenMonkeyPrague = {
+      latitude: 50.091905,
+      longitude: 14.420873,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    };
+
+    const SanFranciso = {
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    };
+
     return (
       <MapView
         style={ styles.map }
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
+        initialRegion={DrunkenMonkeyPrague}
       />
     );
   }
