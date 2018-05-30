@@ -56,10 +56,17 @@ export default class RNRedux extends Component {
       longitudeDelta: 0.0421,
     };
 
+    const GrandCentralStation = {
+      latitude: 40.752970,
+      longitude: -73.977192,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,      
+    };
+
     return (
       <MapView
         style={ styles.map }
-        initialRegion={DrunkenMonkeyPrague}
+        initialRegion={GrandCentralStation}
       />
     );
   }
