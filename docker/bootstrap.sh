@@ -24,6 +24,7 @@ ls
 
 #start adb server and reverse tcp on port 8081 for react-native
 adb start-server
+timeout 20 adb wait-for-any-device
 adb devices
 adb reverse tcp:8081 tcp:8081
 
