@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert
 } from 'react-native';
 import MapView from 'react-native-maps';
 import { UrlTile } from 'react-native-maps';
@@ -40,6 +41,27 @@ export default class RNRedux extends Component {
     super();
   }
 
+  apiTest() {
+    console.log("API TEST");
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then(response => response.json())
+      .then(json => console.log(json));
+  }
+
+  onMapReady() {
+    Alert.alert(
+      'Map Loaded',
+      'Funky Funky',
+      [
+        {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => this.apiTest()},
+      ],
+      { cancelable: false }
+    );
+
+  }
+
   render() {
 
     const DrunkenMonkeyPrague = {
@@ -67,6 +89,7 @@ export default class RNRedux extends Component {
       <MapView
         style={ styles.map }
         initialRegion={GrandCentralStation}
+        onMapReady={e => this.onMapReady(e)}
       />
     );
   }
