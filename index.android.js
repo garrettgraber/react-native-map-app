@@ -14,6 +14,12 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import { UrlTile } from 'react-native-maps';
+import queryString from 'query-string';
+import Config from './config/dev.json';
+import ApiService from './src/remoteServices/apiService.js';
+
+console.log("Config: ", Config);
+console.log("ApiService: ", ApiService);
 
 const styles = StyleSheet.create({
   container: {
@@ -46,6 +52,8 @@ export default class RNRedux extends Component {
     fetch('https://jsonplaceholder.typicode.com/posts/1')
       .then(response => response.json())
       .then(json => console.log(json));
+
+    ApiService.findCity('prague').then(response => console.log(response));
   }
 
   onMapReady() {

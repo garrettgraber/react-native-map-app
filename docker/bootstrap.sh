@@ -31,5 +31,7 @@ adb reverse tcp:8081 tcp:8081
 # echo "Entering bash shell..."
 # bash
 
+echo "IP Address: $IP_HOST" 
+
 echo "Starting React Native..."
 react-native start
