@@ -15,7 +15,6 @@ docker  run \
 				--name react-native-map-app \
 				--env NODE_ENV=development \
 				-e IP_HOST=$IP_HOST \
-				--link map-api-server:API \
 				--privileged \
 				-v /${PWD}/../://root/app \
        	-p 8081:8081 \
